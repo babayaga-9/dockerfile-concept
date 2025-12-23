@@ -1,16 +1,49 @@
-# React + Vite
+# More commands for Docker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## docker run <image>
+runs a container with the image
 
-Currently, two official plugins are available:
+## docker run -d <image>
+leaves the terminal free for other work (detached mode) while running container
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## docker run --name <container-name> <image>
+runs a container with given name with the image
 
-## React Compiler
+## docker run -p 8080:80 <image>
+runs a container with given image and exposes 80 port of container to the 8080 port of host (host means mine)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## docker run -v $(pwd):/app <image>
+runs a container with given image, mounts the directory (or path you give) as a volume to the directory after the colon
 
-## Expanding the ESLint configuration
+## docker run -it <image> sh
+runs a container with given image, in interactive mode (shell to interact with container)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## docker ps
+show all containers (running), to show all, add -a at end
+
+## docker logs <container>
+show logs of the container
+
+## docker attach <container>
+attach me to container to see inside container
+
+## docker start <container>
+start container
+
+## docker stop <container>
+stops container gracefully
+
+## docker kill <container>
+kills all containers (kind of like deleting)
+
+## docker stop $(docker ps -q)
+stops all running containers, -q gives ids
+
+## docker rm <container>
+remove container, add -f for forcefull
+
+## docker <container> prune
+removes all stopped containers
+
+## docker cp <container>:/path/to/file ./
+copies a file from path given from container to given directory (at end)
