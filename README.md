@@ -69,3 +69,12 @@ disconnects a network for a container
 
 ## docker network rm <networkname>
 removes a network
+
+To run a container using a network
+1. docker network create my-bridge
+2. docker run --network my-bridge --name container-1 -d nginx
+3. docker run --network my-bridge --name container-2 -d alpine sleep 3600
+4. docker exec -it container-2 ping container-1
+
+This will ping container 1 from container 2, and you will see packet outputs.
+
