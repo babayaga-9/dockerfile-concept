@@ -47,3 +47,25 @@ removes all stopped containers
 
 ## docker cp <container>:/path/to/file ./
 copies a file from path given from container to given directory (at end)
+
+# Docker Network
+## docker network ls
+lists out all the networks
+
+## docker network inspect <networkname>
+gives a json output about the network
+
+## docker network create <name>
+creates a network
+
+## docker run --network <networkname> <container>
+runs a container using the given network
+
+## docker network connect <networkname> <container>
+adds a network to a container
+
+## docker network disconnect <networkname> <container>
+disconnects a network for a container
+
+## docker network rm <networkname>
+removes a network
